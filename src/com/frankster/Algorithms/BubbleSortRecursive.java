@@ -1,6 +1,21 @@
 package com.frankster.Algorithms;
 
-public class BubbleSort {
+public class BubbleSortRecursive {
+	
+
+		
+	private static int[] sort(int[] arr, int index)
+	{
+		int[] myArray=arr;	
+		if(myArray[index]>myArray[index+1])
+		{
+			int tmp=myArray[index];
+			myArray[index]=myArray[index+1];
+			myArray[index+1]=tmp;
+		}
+		
+		return myArray;
+	}
 
 	public static void main(String []args) {
 		 
@@ -12,26 +27,23 @@ public class BubbleSort {
 	      }
 	      System.out.println(" ");     
 	 
+	      int[] tmpArray=new int[array.length];
 	      int remaining = array.length - 1;
 	      for(int x = 0; x < (array.length-1); x++) {
-	         for(int y = 0; y < (remaining); y++) {
-	            int tmp;
-	            if ( array[y] > array[y+1] ) {
-	              tmp =  array[y]; 
-	              array[y] = array[y+1];
-	              array[y+1] = tmp;
+	    	  int y=0;
+	    	  while(y<remaining) {          
+	        	 tmpArray=sort(array,y++);
+	        	// y++;
 	            }
 	         }
 	         remaining--;
-	      }
+	      
 	 
 	      System.out.print("After sort: " );     
-	      for(int x = 0; x < array.length; x++) {
-	         System.out.print( " " + array[x]);     
+	      for(int x = 0; x < tmpArray.length; x++) {
+	         System.out.print( " " + tmpArray[x]);     
 	      }
 	      System.out.println(" ");     
 	   }
-	
-
 
 }
